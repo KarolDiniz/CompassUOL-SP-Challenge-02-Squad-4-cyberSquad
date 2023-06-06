@@ -16,6 +16,10 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
+
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
@@ -24,5 +28,4 @@ public class ProductService {
         return productRepository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
     }
-
 }
