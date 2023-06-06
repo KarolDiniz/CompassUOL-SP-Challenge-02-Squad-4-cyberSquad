@@ -23,5 +23,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         String bodyOfResponse = "Ocorreu um erro durante a solicitação.";
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
+
 }
+
 
