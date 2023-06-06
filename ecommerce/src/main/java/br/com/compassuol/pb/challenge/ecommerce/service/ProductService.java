@@ -26,13 +26,17 @@ public class ProductService {
     }
 
     public Product getProductById(Long productId) {
-        return productRepository.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
+        return productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
     }
 
     public Product updateProduct(Long productId, Product product) {
         Product existingProduct = getProductById(productId);
         BeanUtils.copyProperties(product, existingProduct, "productId");
         return productRepository.save(existingProduct);
+    }
+
+    public void deleteProduct(Long productId) {
+        Product existingProduct = getProductById(productId);
+        productRepository.delete(existingProduct);
     }
 }
