@@ -38,5 +38,16 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(
+            @PathVariable("id") Long productId, @RequestBody @Valid Product product) {
+        try {
+            Product updatedProduct = productService.updateProduct(productId, product);
+            return ResponseEntity.ok(updatedProduct);
+        } catch (ProductNotFoundException ex) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
 
