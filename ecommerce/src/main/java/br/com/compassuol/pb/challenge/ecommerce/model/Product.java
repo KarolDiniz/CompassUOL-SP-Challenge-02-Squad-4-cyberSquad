@@ -1,17 +1,13 @@
 package br.com.compassuol.pb.challenge.ecommerce.model;
-
+import br.com.compassuol.pb.challenge.ecommerce.interfaces.PriceValidate;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "product")
 public class Product {
@@ -20,17 +16,16 @@ public class Product {
     @Column(name = "id")
     private Long productId;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotEmpty(message = "Name is mandatory")
     @Size(min = 3, message = "Name must have at least 3 characters")
     @Column(name = "name")
     private String name;
 
-    @NotNull(message = "Price is mandatory")
-    @Min(value = 0, message = "Price must be a positive value")
+    @PriceValidate
     @Column(name = "price")
     private BigDecimal price;
 
-    @NotBlank(message = "Description is mandatory")
+    @NotEmpty(message = "Description is mandatory")
     @Size(min = 3, message = "Description must have at least 3 characters")
     @Column(name = "description")
     private String description;
