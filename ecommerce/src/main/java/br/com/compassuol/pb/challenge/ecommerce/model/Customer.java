@@ -1,20 +1,18 @@
 package br.com.compassuol.pb.challenge.ecommerce.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.br.CPF;
+import jakarta.validation.constraints.*;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 /**
  * Esta classe Customer representa um cliente no sistema de e-commerce.
  * Ademais, ela encapsula os dados relacionados a um cliente,
  * como nome, CPF, email e status de ativação.
  */
-@Getter
-@Setter
+
+@Data
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -36,7 +34,6 @@ public class Customer {
     private String email;
 
     @Column(name = "active")
-    private Boolean active;
-
+    private boolean active;
 }
 
