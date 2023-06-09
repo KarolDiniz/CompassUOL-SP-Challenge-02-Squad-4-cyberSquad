@@ -15,12 +15,11 @@ public class PaymentService {
         }
 
         public Payment createPayment(Payment payment) {
-            // Implemente a lógica de criação do pagamento
-            // Você pode adicionar validações, atribuir valores adicionais, salvar no banco de dados, etc.
+
             return paymentRepository.save(payment);
         }
 
-        // Outros métodos do serviço, se necessário
+
 
 }
 
