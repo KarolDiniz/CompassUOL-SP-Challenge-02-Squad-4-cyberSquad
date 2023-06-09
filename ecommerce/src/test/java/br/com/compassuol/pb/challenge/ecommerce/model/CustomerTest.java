@@ -1,3 +1,5 @@
+package br.com.compassuol.pb.challenge.ecommerce.model;
+
 import br.com.compassuol.pb.challenge.ecommerce.model.Customer;
 import org.junit.jupiter.api.Test;
 
@@ -16,9 +18,9 @@ class CustomerTest {
     @Test
     void getName() {
         Customer customer = new Customer();
-        customer.setName("John");
+        customer.setName("Pedro");
 
-        assertEquals("John", customer.getName());
+        assertEquals("Pedro", customer.getName());
     }
 
     @Test
@@ -32,9 +34,9 @@ class CustomerTest {
     @Test
     void getEmail() {
         Customer customer = new Customer();
-        customer.setEmail("john@example.com");
+        customer.setEmail("pedro@gmail.com");
 
-        assertEquals("john@example.com", customer.getEmail());
+        assertEquals("pedro@gmail.com", customer.getEmail());
     }
 
     @Test
@@ -56,9 +58,9 @@ class CustomerTest {
     @Test
     void setName() {
         Customer customer = new Customer();
-        customer.setName("John");
+        customer.setName("Pedro");
 
-        assertEquals("John", customer.getName());
+        assertEquals("Pedro", customer.getName());
     }
 
     @Test
@@ -72,9 +74,9 @@ class CustomerTest {
     @Test
     void setEmail() {
         Customer customer = new Customer();
-        customer.setEmail("john@example.com");
+        customer.setEmail("pedro@gmail.com");
 
-        assertEquals("john@example.com", customer.getEmail());
+        assertEquals("pedro@gmail.com", customer.getEmail());
     }
 
     @Test
