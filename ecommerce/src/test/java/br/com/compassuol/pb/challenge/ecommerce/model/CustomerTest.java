@@ -1,6 +1,5 @@
 package br.com.compassuol.pb.challenge.ecommerce.model;
 
-import br.com.compassuol.pb.challenge.ecommerce.model.Customer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
