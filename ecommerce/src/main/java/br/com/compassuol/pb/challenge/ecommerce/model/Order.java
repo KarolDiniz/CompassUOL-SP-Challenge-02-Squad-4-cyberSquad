@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -21,10 +23,15 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @ElementCollection
+    @CollectionTable(name = "order_products", joinColumns = @JoinColumn(name = "order_id"))
+    @MapKeyJoinColumn(name = "product_id")
+    @Column(name = "quantity")
+    private Map<Product, Integer> products = new HashMap<>();
 
     @NotNull
     @Column(name = "date")
-    private LocalDateTime date;
+    private LocalDate date;
 
     @Enumerated(EnumType.STRING)
     @NotNull
