@@ -1,6 +1,6 @@
-package br.com.compassuol.pb.challenge.ecommerce.controller;
-import br.com.compassuol.pb.challenge.ecommerce.model.Order;
-import br.com.compassuol.pb.challenge.ecommerce.service.OrderService;
+package br.com.compassuol.pb.challenge.ecommerce.api.controller;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Order;
+import br.com.compassuol.pb.challenge.ecommerce.domain.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

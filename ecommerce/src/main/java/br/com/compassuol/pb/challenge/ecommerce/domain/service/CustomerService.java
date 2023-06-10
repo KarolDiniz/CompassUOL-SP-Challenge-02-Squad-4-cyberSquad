@@ -1,7 +1,7 @@
-package br.com.compassuol.pb.challenge.ecommerce.service;
+package br.com.compassuol.pb.challenge.ecommerce.domain.service;
 
-import br.com.compassuol.pb.challenge.ecommerce.model.Customer;
-import br.com.compassuol.pb.challenge.ecommerce.repository.CustomerRepository;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Customer;
+import br.com.compassuol.pb.challenge.ecommerce.domain.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;

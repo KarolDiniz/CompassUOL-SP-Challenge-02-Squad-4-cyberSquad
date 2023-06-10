@@ -1,5 +1,5 @@
-package br.com.compassuol.pb.challenge.ecommerce.model;
-import br.com.compassuol.pb.challenge.ecommerce.interfaces.PriceValidate;
+package br.com.compassuol.pb.challenge.ecommerce.domain.entities;
+import br.com.compassuol.pb.challenge.ecommerce.domain.interfaces.PriceValidate;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;

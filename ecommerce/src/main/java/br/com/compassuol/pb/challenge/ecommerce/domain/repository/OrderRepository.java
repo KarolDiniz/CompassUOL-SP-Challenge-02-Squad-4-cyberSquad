@@ -1,5 +1,5 @@
-package br.com.compassuol.pb.challenge.ecommerce.repository;
-import br.com.compassuol.pb.challenge.ecommerce.model.Order;
+package br.com.compassuol.pb.challenge.ecommerce.domain.repository;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

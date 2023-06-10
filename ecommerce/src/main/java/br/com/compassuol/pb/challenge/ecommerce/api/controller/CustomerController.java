@@ -1,7 +1,7 @@
-package br.com.compassuol.pb.challenge.ecommerce.controller;
+package br.com.compassuol.pb.challenge.ecommerce.api.controller;
 
-import br.com.compassuol.pb.challenge.ecommerce.model.Customer;
-import br.com.compassuol.pb.challenge.ecommerce.service.CustomerService;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Customer;
+import br.com.compassuol.pb.challenge.ecommerce.domain.service.CustomerService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
