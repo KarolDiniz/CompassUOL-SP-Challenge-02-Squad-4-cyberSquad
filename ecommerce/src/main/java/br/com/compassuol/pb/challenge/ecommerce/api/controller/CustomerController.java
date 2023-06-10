@@ -22,13 +22,13 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer) {
-        Customer createdCustomer = customerService.createCustomer(customer);
+        var createdCustomer = customerService.createCustomer(customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long customerId) {
-        Customer customer = customerService.getCustomerById(customerId);
+        var customer = customerService.getCustomerById(customerId);
         return ResponseEntity.ok(customer);
     }
 
