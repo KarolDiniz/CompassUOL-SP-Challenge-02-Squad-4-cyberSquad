@@ -37,10 +37,8 @@ class OrderControllerTest {
 
         when(orderService.getAllOrders()).thenReturn(orders);
 
-        // Act
         ResponseEntity<List<Order>> response = orderController.getAllOrders();
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(orders, response.getBody());
         verify(orderService, times(1)).getAllOrders();
@@ -55,10 +53,8 @@ class OrderControllerTest {
 
         when(orderService.getOrderById(orderId)).thenReturn(Optional.of(order));
 
-        // Act
         ResponseEntity<Order> response = orderController.getOrderById(orderId);
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(order, response.getBody());
         verify(orderService, times(1)).getOrderById(orderId);
@@ -71,10 +67,8 @@ class OrderControllerTest {
 
         when(orderService.getOrderById(orderId)).thenReturn(Optional.empty());
 
-        // Act
         ResponseEntity<Order> response = orderController.getOrderById(orderId);
 
-        // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNull(response.getBody());
         verify(orderService, times(1)).getOrderById(orderId);
@@ -82,12 +76,10 @@ class OrderControllerTest {
 
     @Test
     void createOrder_ValidOrder_ReturnsCreated() {
-        // Arrange
         Order order = new Order();
 
         when(orderService.createOrder(order)).thenReturn(order);
 
-        // Act
         ResponseEntity<Order> response = orderController.createOrder(order);
 
         // Assert
@@ -98,15 +90,12 @@ class OrderControllerTest {
 
     @Test
     void createOrder_InvalidOrder_ReturnsBadRequest() {
-        // Arrange
         Order order = new Order();
 
         doThrow(IllegalArgumentException.class).when(orderService).createOrder(order);
 
-        // Act
         ResponseEntity<Order> response = orderController.createOrder(order);
 
-        // Assert
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertNull(response.getBody());
         verify(orderService, times(1)).createOrder(order);
@@ -114,7 +103,6 @@ class OrderControllerTest {
 
     @Test
     void getOrdersByCustomerId_ValidCustomerId_ReturnsOrders() {
-        // Arrange
         Long customerId = 1L;
         List<Order> orders = new ArrayList<>();
         orders.add(new Order());
@@ -122,10 +110,8 @@ class OrderControllerTest {
 
         when(orderService.getOrdersByCustomerId(customerId)).thenReturn(orders);
 
-        // Act
         ResponseEntity<List<Order>> response = orderController.getOrdersByCustomerId(customerId);
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(orders, response.getBody());
         verify(orderService, times(1)).getOrdersByCustomerId(customerId);
@@ -133,15 +119,12 @@ class OrderControllerTest {
 
     @Test
     void getOrdersByCustomerId_InvalidCustomerId_ReturnsBadRequest() {
-        // Arrange
         Long customerId = 1L;
 
         doThrow(IllegalArgumentException.class).when(orderService).getOrdersByCustomerId(customerId);
 
-        // Act
         ResponseEntity<List<Order>> response = orderController.getOrdersByCustomerId(customerId);
 
-        // Assert
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertNull(response.getBody());
         verify(orderService, times(1)).getOrdersByCustomerId(customerId);

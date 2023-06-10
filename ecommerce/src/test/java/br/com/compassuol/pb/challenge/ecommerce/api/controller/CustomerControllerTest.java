@@ -25,16 +25,13 @@ class CustomerControllerTest {
 
     @Test
     void createCustomer_ValidCustomer_ReturnsCreated() {
-        // Arrange
         Customer customer = new Customer();
         customer.setName("John Doe");
 
         when(customerService.createCustomer(customer)).thenReturn(customer);
 
-        // Act
         ResponseEntity<Customer> response = customerController.createCustomer(customer);
 
-        // Assert
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(customer, response.getBody());
         verify(customerService, times(1)).createCustomer(customer);
@@ -42,7 +39,6 @@ class CustomerControllerTest {
 
     @Test
     void getCustomerById_ExistingCustomerId_ReturnsCustomer() {
-        // Arrange
         Long customerId = 1L;
         Customer customer = new Customer();
         customer.setCustomerId(customerId);
@@ -50,10 +46,8 @@ class CustomerControllerTest {
 
         when(customerService.getCustomerById(customerId)).thenReturn(customer);
 
-        // Act
         ResponseEntity<Customer> response = customerController.getCustomerById(customerId);
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(customer, response.getBody());
         verify(customerService, times(1)).getCustomerById(customerId);
@@ -61,7 +55,6 @@ class CustomerControllerTest {
 
     @Test
     void updateCustomer_ValidCustomer_ReturnsUpdatedCustomer() {
-        // Arrange
         Long customerId = 1L;
         Customer customer = new Customer();
         customer.setCustomerId(customerId);
@@ -69,10 +62,8 @@ class CustomerControllerTest {
 
         when(customerService.updateCustomer(customer)).thenReturn(customer);
 
-        // Act
         ResponseEntity<Customer> response = customerController.updateCustomer(customerId, customer);
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(customer, response.getBody());
         verify(customerService, times(1)).updateCustomer(customer);
@@ -80,13 +71,11 @@ class CustomerControllerTest {
 
     @Test
     void updateCustomer_CustomerIdMismatch_ThrowsIllegalArgumentException() {
-        // Arrange
         Long customerId = 1L;
         Customer customer = new Customer();
         customer.setCustomerId(2L);
         customer.setName("John Doe");
 
-        // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> {
             customerController.updateCustomer(customerId, customer);
         });
