@@ -20,7 +20,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody @Valid Product product) {
-        Product createdProduct = productService.createProduct(product);
+        var createdProduct = productService.createProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
     }
 
@@ -32,7 +32,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") Long productId) {
         try {
-            Product product = productService.getProductById(productId);
+            var product = productService.getProductById(productId);
             return ResponseEntity.ok(product);
         } catch (ProductNotFoundException ex) {
             return ResponseEntity.notFound().build();
@@ -43,7 +43,7 @@ public class ProductController {
     public ResponseEntity<Product> updateProduct(
             @PathVariable("id") Long productId, @RequestBody @Valid Product product) {
         try {
-            Product updatedProduct = productService.updateProduct(productId, product);
+            var updatedProduct = productService.updateProduct(productId, product);
             return ResponseEntity.ok(updatedProduct);
         } catch (ProductNotFoundException ex) {
             return ResponseEntity.notFound().build();
