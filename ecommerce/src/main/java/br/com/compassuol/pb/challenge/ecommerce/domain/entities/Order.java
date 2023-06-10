@@ -1,5 +1,6 @@
 package br.com.compassuol.pb.challenge.ecommerce.domain.entities;
 import br.com.compassuol.pb.challenge.ecommerce.domain.enums.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,13 +14,6 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private LocalDateTime date;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private OrderStatus status;
-
     @Column(name = "customer_id", nullable = false)
     private Long customerId;
 
@@ -27,7 +21,13 @@ public class Order {
     @JoinColumn(name = "order_id")
     private List<OrderItem> items;
 
-    // Construtores, getters e setters
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
+    private LocalDateTime date;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OrderStatus status;
 
     @PrePersist
     public void prePersist() {
