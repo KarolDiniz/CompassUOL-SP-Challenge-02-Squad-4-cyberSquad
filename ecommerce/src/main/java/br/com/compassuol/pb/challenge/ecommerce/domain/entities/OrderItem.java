@@ -1,5 +1,6 @@
 package br.com.compassuol.pb.challenge.ecommerce.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
 @Table(name = "order_items")
 public class OrderItem {
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
