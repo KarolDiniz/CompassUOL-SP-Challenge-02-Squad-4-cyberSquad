@@ -1,4 +1,5 @@
-package br.com.compassuol.pb.challenge.ecommerce.model;
+package br.com.compassuol.pb.challenge.ecommerce.domain.entities;
+import br.com.compassuol.pb.challenge.ecommerce.domain.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 

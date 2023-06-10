@@ -1,9 +1,12 @@
-package br.com.compassuol.pb.challenge.ecommerce.service;
+package br.com.compassuol.pb.challenge.ecommerce.domain.service;
 
-import br.com.compassuol.pb.challenge.ecommerce.model.Order;
-import br.com.compassuol.pb.challenge.ecommerce.model.OrderItem;
-import br.com.compassuol.pb.challenge.ecommerce.model.OrderStatus;
-import br.com.compassuol.pb.challenge.ecommerce.repository.*;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Order;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.OrderItem;
+import br.com.compassuol.pb.challenge.ecommerce.domain.enums.OrderStatus;
+import br.com.compassuol.pb.challenge.ecommerce.domain.repository.CustomerRepository;
+import br.com.compassuol.pb.challenge.ecommerce.domain.repository.OrderRepository;
+import br.com.compassuol.pb.challenge.ecommerce.domain.repository.ProductRepository;
+import br.com.compassuol.pb.challenge.ecommerce.domain.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

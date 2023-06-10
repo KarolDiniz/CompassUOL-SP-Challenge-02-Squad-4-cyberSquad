@@ -1,4 +1,4 @@
-package br.com.compassuol.pb.challenge.ecommerce.interfaces;
+package br.com.compassuol.pb.challenge.ecommerce.domain.interfaces;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

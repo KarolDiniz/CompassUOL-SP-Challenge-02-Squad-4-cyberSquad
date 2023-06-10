@@ -1,5 +1,11 @@
-package br.com.compassuol.pb.challenge.ecommerce.exception;
+package br.com.compassuol.pb.challenge.ecommerce.api.exceptionHandler;
 
+import br.com.compassuol.pb.challenge.ecommerce.domain.exception.ErrorResponse;
+import br.com.compassuol.pb.challenge.ecommerce.domain.exception.PriceValidateException;
+import br.com.compassuol.pb.challenge.ecommerce.domain.exception.ProductNotFoundException;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -8,7 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpHeaders;
 
+import javax.naming.AuthenticationException;
+import java.nio.file.AccessDeniedException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 /**
  * Esta classe é um controller que estende a classe ResponseEntityExceptionHandler.
@@ -22,6 +33,17 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
         String bodyOfResponse = "Ocorreu um erro durante a solicitação.";
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(ConstraintViolationException ex) {
+        Set<ConstraintViolation<?>> violations = ex.getConstraintViolations();
+        List<String> errors = new ArrayList<>();
+        for (ConstraintViolation<?> violation : violations) {
+            errors.add(violation.getMessage());
+        }
+
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Validation error", errors);
+        return ResponseEntity.badRequest().body(errorResponse);
     }
 
     @ExceptionHandler(value = ProductNotFoundException.class)

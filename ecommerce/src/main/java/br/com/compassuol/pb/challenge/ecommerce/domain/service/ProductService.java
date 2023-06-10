@@ -1,9 +1,9 @@
-package br.com.compassuol.pb.challenge.ecommerce.service;
-import br.com.compassuol.pb.challenge.ecommerce.exception.ProductNotFoundException;
-import br.com.compassuol.pb.challenge.ecommerce.model.Product;
+package br.com.compassuol.pb.challenge.ecommerce.domain.service;
+import br.com.compassuol.pb.challenge.ecommerce.domain.exception.ProductNotFoundException;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Product;
+import br.com.compassuol.pb.challenge.ecommerce.domain.repository.ProductRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import br.com.compassuol.pb.challenge.ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
