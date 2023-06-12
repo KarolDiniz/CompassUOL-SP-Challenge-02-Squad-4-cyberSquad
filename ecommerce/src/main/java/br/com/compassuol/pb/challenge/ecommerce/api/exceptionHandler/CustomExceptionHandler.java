@@ -1,25 +1,20 @@
 package br.com.compassuol.pb.challenge.ecommerce.api.exceptionHandler;
 
-import br.com.compassuol.pb.challenge.ecommerce.domain.exception.ErrorResponse;
-import br.com.compassuol.pb.challenge.ecommerce.domain.exception.PriceValidateException;
 import br.com.compassuol.pb.challenge.ecommerce.domain.exception.ProductNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpHeaders;
-
-import javax.naming.AuthenticationException;
-import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
+
 
 /**
  * Esta classe é um controller que estende a classe ResponseEntityExceptionHandler.
@@ -29,34 +24,51 @@ import java.util.Set;
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {IllegalArgumentException.class, NoSuchElementException.class})
+    @ExceptionHandler(value = {IllegalArgumentException.class})
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
         String bodyOfResponse = "Ocorreu um erro durante a solicitação.";
-        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(bodyOfResponse);
     }
+
+
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ErrorResponse> handleValidationException(ConstraintViolationException ex) {
+    public ResponseEntity<Object> handleValidationException(ConstraintViolationException ex) {
         Set<ConstraintViolation<?>> violations = ex.getConstraintViolations();
         List<String> errors = new ArrayList<>();
         for (ConstraintViolation<?> violation : violations) {
             errors.add(violation.getMessage());
         }
 
-        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Validation error", errors);
-        return ResponseEntity.badRequest().body(errorResponse);
+        String errorMessage = String.join(", ", errors);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
+
 
     @ExceptionHandler(value = ProductNotFoundException.class)
     protected ResponseEntity<Object> handleProductNotFoundException(ProductNotFoundException ex, WebRequest request) {
         String bodyOfResponse = "Produto não encontrado.";
-        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(bodyOfResponse);
     }
 
-    @ExceptionHandler(PriceValidateException.class)
-    public ResponseEntity<String> handlePriceValidationException(PriceValidateException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex, WebRequest request) {
+        String errorMessage = "Falha ao converter o " + ex.getName() + ". Insira um valor válido! ";
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public String handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+        return "Falha ao cadastrar. O valor inserido já existe.";
+    }
+
+
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public String handleNoSuchElementException(NoSuchElementException ex) {
+        return "Recurso não encontrado.";
     }
 
 }
-
-
