@@ -1,4 +1,5 @@
 package br.com.compassuol.pb.challenge.ecommerce.api.controller;
+
 import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Order;
 import br.com.compassuol.pb.challenge.ecommerce.domain.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Rest controller responsável por lidar com as requisições relacionadas aos pedidos.
+ * Nele, enfatiza-se operacões como: criar (Post), obter (Get) e atualizar (Put) um pedido especifico.
+ * obter(get) todos os pedidos, e obter (get) pedidos realizados a um cliente epecífico.
+ */
 
 @RestController
 @RequestMapping("/v1/orders")

@@ -7,9 +7,8 @@ import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 /**
- * Esta classe Customer representa um cliente no sistema de e-commerce.
- * Ela encapsula os dados relacionados a um cliente,
- * como nome, CPF, email e status de ativação.
+ * Representa um cliente no sistema de e-commerce.
+ * Esta classe encapsula os dados relacionados a um cliente, incluindo seu nome, CPF, email e status de ativação.
  */
 
 @Data

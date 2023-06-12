@@ -4,6 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+/**
+ * Representa um item de um pedido no sistema de e-commerce.
+ * Esta classe encapsula os dados relacionados a um item de pedido, incluindo o identificador, o identificador do produto
+ * e a quantidade.
+ */
+
 @Data
 @Entity
 @Table(name = "order_items")

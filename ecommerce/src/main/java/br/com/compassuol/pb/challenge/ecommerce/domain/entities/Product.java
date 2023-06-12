@@ -7,6 +7,12 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * Representa um produto no sistema de e-commerce.
+ * Esta classe encapsula os dados relacionados a um produto, incluindo o identificador, o nome,
+ * o preço e a descrição.
+ */
+
 @Data
 @Entity
 @Table(name = "product")

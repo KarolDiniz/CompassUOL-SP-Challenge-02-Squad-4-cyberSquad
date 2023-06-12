@@ -6,6 +6,13 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+/**
+ * Representa um pedido no sistema de e-commerce.
+ * Esta classe encapsula os dados relacionados a um pedido, incluindo o identificador, o identificador do cliente,
+ * os itens do pedido, a data de criação, e o status.
+ */
+
 @Data
 @Entity
 @Table(name = "orders")
