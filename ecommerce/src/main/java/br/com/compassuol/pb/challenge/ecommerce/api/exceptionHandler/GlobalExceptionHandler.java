@@ -22,7 +22,7 @@ import java.util.Set;
  * A anotação @ControllerAdvice indica que essa classe é um manipulador de exceções global para os controladores.
  */
 @ControllerAdvice
-public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {IllegalArgumentException.class})
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
