@@ -41,7 +41,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/customer/{customerId}")
+    @GetMapping("/customers/{customerId}")
     public ResponseEntity<List<Order>> getOrdersByCustomerId(@PathVariable("customerId") Long customerId) {
         try {
             List<Order> orders = orderService.getOrdersByCustomerId(customerId);
