@@ -25,7 +25,7 @@ import java.util.Set;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {IllegalArgumentException.class})
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
+    public ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
         String bodyOfResponse = "Ocorreu um erro durante a solicitação.";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(bodyOfResponse);
     }
@@ -45,13 +45,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler(value = ProductNotFoundException.class)
-    protected ResponseEntity<Object> handleProductNotFoundException(ProductNotFoundException ex, WebRequest request) {
+    public ResponseEntity<Object> handleProductNotFoundException(ProductNotFoundException ex, WebRequest request) {
         String bodyOfResponse = "Produto não encontrado.";
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(bodyOfResponse);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex, WebRequest request) {
+    public ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex, WebRequest request) {
         String errorMessage = "Falha ao converter o " + ex.getName() + ". Insira um valor válido! ";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
