@@ -17,8 +17,7 @@ class ProductControllerTest {
 
     @Test
     void createProduct() {
-        // Arrange
-        Product product = new Product(); // Create a product object
+        Product product = new Product();
         ProductService productService = mock(ProductService.class);
         when(productService.createProduct(product)).thenReturn(product);
         ProductController productController = new ProductController(productService);
@@ -32,7 +31,7 @@ class ProductControllerTest {
 
     @Test
     void getAllProducts() {
-        List<Product> products = new ArrayList<>(); // Create a list of products
+        List<Product> products = new ArrayList<>();
         ProductService productService = mock(ProductService.class);
         when(productService.getAllProducts()).thenReturn(products);
         ProductController productController = new ProductController(productService);
@@ -46,7 +45,7 @@ class ProductControllerTest {
     @Test
     void getProductById_ProductExists_ReturnsOk() {
         Long productId = 1L;
-        Product product = new Product(); // Create a product object
+        Product product = new Product();
         ProductService productService = mock(ProductService.class);
         when(productService.getProductById(productId)).thenReturn(product);
         ProductController productController = new ProductController(productService);
@@ -75,7 +74,7 @@ class ProductControllerTest {
     @Test
     void updateProduct_ProductExists_ReturnsOk() {
         Long productId = 1L;
-        Product updatedProduct = new Product(); // Create an updated product object
+        Product updatedProduct = new Product();
         ProductService productService = mock(ProductService.class);
         when(productService.updateProduct(productId, updatedProduct)).thenReturn(updatedProduct);
         ProductController productController = new ProductController(productService);
@@ -89,7 +88,7 @@ class ProductControllerTest {
     @Test
     void updateProduct_ProductNotFound_ReturnsNotFound() {
         Long productId = 1L;
-        Product updatedProduct = new Product(); // Create an updated product object
+        Product updatedProduct = new Product();
         ProductService productService = mock(ProductService.class);
         when(productService.updateProduct(productId, updatedProduct)).thenThrow(ProductNotFoundException.class);
         ProductController productController = new ProductController(productService);

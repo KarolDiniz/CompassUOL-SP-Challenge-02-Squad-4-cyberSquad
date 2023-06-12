@@ -30,7 +30,6 @@ class OrderControllerTest {
 
     @Test
     void getAllOrders_ReturnsAllOrders() {
-        // Arrange
         List<Order> orders = new ArrayList<>();
         orders.add(new Order());
         orders.add(new Order());
