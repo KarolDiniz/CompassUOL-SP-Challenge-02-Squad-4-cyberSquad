@@ -19,7 +19,6 @@ import java.util.Set;
 /**
  * Esta classe é um controller que estende a classe ResponseEntityExceptionHandler.
  * É responsável por tratar exceções específicas no projeto e retornar respostas personalizadas.
- * A anotação @ControllerAdvice indica que essa classe é um manipulador de exceções global para os controladores.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {

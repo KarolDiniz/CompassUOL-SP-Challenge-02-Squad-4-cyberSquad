@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 /**
  * Esta classe Customer representa um cliente no sistema de e-commerce.
- * Ademais, ela encapsula os dados relacionados a um cliente,
+ * Ela encapsula os dados relacionados a um cliente,
  * como nome, CPF, email e status de ativação.
  */
 
