@@ -1,0 +1,29 @@
+----- Test: Status final -----
+
+1. Functional (100%):
+
+CustomerControllerTest
+OrderControllerTest
+ProductControllerTest
+GlobalExceptionHandlerTest
+CustomerTest
+OrderItemTest
+OrderTest
+PaymentTest
+ProductTest
+OrderStatusTest
+PaymentMethodTest
+ErrorResponseTest
+PriceValidateExceptionTest
+ProductNotFoundExceptionTest
+CustomerServiceTest
+PaymentServiceTest
+OrderServiceTest
+PaymentControllerTest
+ProductServiceTest
+
+2. Non-functional: null
+
+3. Not tested: null
+
+

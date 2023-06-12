@@ -1,0 +1,141 @@
+----- inputs -----
+
+1. Customer: 
+
+POST: http://localhost:8080/v1/customers
+
+{
+    "name": "Monkey D. Luffy",
+    "cpf": {insiraAquiUmCpfVálidoExistente},
+    "email": "Luffy@example.com",
+    "active": true
+}
+
+POST: http://localhost:8080/v1/customers
+
+{
+    "name": "Gutts",
+    "cpf": {insiraAquiUmCpfVálidoExistente},
+    "email": "BerserkArmor@example.com",
+    "active": true
+}	
+
+-----------------------------------------
+
+GET: http://localhost:8080/v1/customers/1
+
+GET: http://localhost:8080/v1/customers/2
+
+-----------------------------------------
+
+PUT: http://localhost:8080/v1/customers/1
+
+PUT http://localhost:8080/v1/customers/2
+
+
+2. Products: 
+
+POST: http://localhost:8080/v1/products
+
+{
+    "name": "Caixa de ovos",
+    "price": 12.99,
+    "description": "Ovo caipira"
+}
+
+POST: http://localhost:8080/v1/products
+
+{
+    "name": "Queijo",
+    "price": "20.99",
+    "description": "Cualho - pré-cozido"
+}
+
+POST: http://localhost:8080/v1/products
+
+{
+    "name": "Filé de frango",
+    "price": "42.90",
+    "description": "Filé de frago pré-cozido"
+}
+
+
+GET: http://localhost:8080/v1/products
+
+--------------------------------------
+
+GET: http://localhost:8080/v1/products/1
+
+--------------------------------------
+
+PUT: http://localhost:8080/v1/products/1
+
+--------------------------------------
+
+DELETE: http://localhost:8080/v1/products/3
+
+
+3. Order: 
+
+POST: http://localhost:8080/v1/orders
+
+{
+  "customerId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "productId": 2,
+      "quantity": 1
+    }
+  ]
+}
+
+POST: http://localhost:8080/v1/orders
+
+{
+  "customerId": 2,
+  "items": [
+    {
+      "productId": 2,
+      "quantity": 10
+    },
+    {
+      "productId": 3,
+      "quantity": 5
+    }
+  ]
+}
+
+-----------------------------------
+
+GET: http://localhost:8080/v1/orders
+
+GET: http://localhost:8080/v1/orders/customers/1
+
+GET: http://localhost:8080/v1/orders/customers/2
+
+
+4. Payment:
+
+POST: http://localhost:8080/v1/payments
+
+{
+  "paymentMethod": "PIX",
+  "orderId": 1
+}
+
+POST: http://localhost:8080/v1/payments
+
+{
+  "paymentMethod": "DEBIT_CARD",
+  "orderId": 2
+}
+
+
+
+
+
+
