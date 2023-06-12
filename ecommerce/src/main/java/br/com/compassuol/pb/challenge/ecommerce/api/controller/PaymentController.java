@@ -20,7 +20,7 @@ public class PaymentController {
     @PostMapping
     public ResponseEntity<Payment> createPayment(@Valid @RequestBody Payment payment) {
         try {
-            Payment createdPayment = paymentService.createPayment(payment);
+            var createdPayment = paymentService.createPayment(payment);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdPayment);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
