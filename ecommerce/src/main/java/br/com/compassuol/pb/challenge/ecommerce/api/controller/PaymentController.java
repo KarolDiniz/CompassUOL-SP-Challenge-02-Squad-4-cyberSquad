@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Rest controller responsável por lidar com as requisições relacionadas aos pagamentos.
- * Nele, enfatiza-se a operacão de criar (Post) um pagamento especifico.
+ * Rest controller responsible for handling requests related to payments.
+ * In it, the emphasis is on the operation of creating (Post) a specific payment.
  */
 
 @RestController

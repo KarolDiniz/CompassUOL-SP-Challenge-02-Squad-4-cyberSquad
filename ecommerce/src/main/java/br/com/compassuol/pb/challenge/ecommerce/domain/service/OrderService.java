@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Manages order related operations.
+ * Uses OrderRepository, CustomerRepository and ProductRepository to interact with the persistence layer.
+ */
+
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.NoSuchElementException;
 
 /**
- * Esta classe gerencia as operações relacionadas aos clientes.
- * O serviço depende de uma instância de CustomerRepository para interagir com a camada de persistência.
+ * Manages operations related to clients.
+ * Uses a CustomerRepository to interact with the persistence layer
  */
 
 @Service

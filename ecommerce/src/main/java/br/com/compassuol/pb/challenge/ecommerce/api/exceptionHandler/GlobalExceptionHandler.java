@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-
 /**
- * Esta classe é um controller que estende a classe ResponseEntityExceptionHandler.
- * É responsável por tratar exceções específicas no projeto e retornar respostas personalizadas.
+ * This class is a controller that extends the ResponseEntityExceptionHandler class.
+ * It is responsible for handling specific exceptions in the project and returning custom responses.
  */
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
