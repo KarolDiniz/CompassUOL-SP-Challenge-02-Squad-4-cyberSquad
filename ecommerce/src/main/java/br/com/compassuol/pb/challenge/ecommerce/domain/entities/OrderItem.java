@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 /**
- * Representa um item de um pedido no sistema de e-commerce.
- * Esta classe encapsula os dados relacionados a um item de pedido, incluindo o identificador, o identificador do produto
- * e a quantidade.
+ * Represents an order item in the e-commerce system.
+ * This class encapsulates the data related to an order item, including the identifier, product identifier
+ * and the quantity.
  */
 
 @Data

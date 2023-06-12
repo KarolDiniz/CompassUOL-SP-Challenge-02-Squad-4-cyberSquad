@@ -11,9 +11,9 @@ import jakarta.validation.Valid;
 import java.util.List;
 
 /**
- * Rest controller responsável por lidar com as requisições relacionadas aos produtos.
- * Nele, enfatiza-se operacões como: criar (Post), obter (Get), atualizar (Put) e deletar (Delete) um produto especifico.
- * e obter (get) todos os produtos cadastrados;
+ * Rest controller responsible for handling requests related to products.
+ * In it, we emphasize operations such as: create (Post), get, update (Put) and delete (Delete) a specific product.
+ * and get all registered products;
  */
 
 @RestController

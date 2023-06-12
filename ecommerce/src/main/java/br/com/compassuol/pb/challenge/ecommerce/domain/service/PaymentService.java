@@ -7,6 +7,11 @@ import br.com.compassuol.pb.challenge.ecommerce.domain.repository.PaymentReposit
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Manages payment related payments.
+ * Uses PaymentRepository and OrderRepository to interact with the persistence layer.
+ */
+
 @Service
 public class PaymentService {
     private final PaymentRepository paymentRepository;

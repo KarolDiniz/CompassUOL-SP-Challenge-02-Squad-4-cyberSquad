@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Rest controller responsável por lidar com as requisições relacionadas aos clientes.
- * Nele, enfatiza-se operacões como: criar (Post), obter (Get) e atualizar (Put) um cliente especifico.
+ * Rest controller responsible for handling customer related requests.
+ * Emphasizes operations such as: create (Post), get (Get) and update (Put) a specific client.
  */
 
 @RestController

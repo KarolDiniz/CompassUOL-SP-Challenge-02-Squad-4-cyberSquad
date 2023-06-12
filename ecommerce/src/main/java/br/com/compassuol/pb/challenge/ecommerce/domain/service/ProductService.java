@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/**
+ * Manages operations related to products.
+ * Uses ProductRepository to interact with the persistence layer
+ */
+
 @Service
 public class ProductService {
     private final ProductRepository productRepository;

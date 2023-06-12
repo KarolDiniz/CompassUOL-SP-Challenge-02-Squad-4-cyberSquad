@@ -8,9 +8,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * Representa um produto no sistema de e-commerce.
- * Esta classe encapsula os dados relacionados a um produto, incluindo o identificador, o nome,
- * o preço e a descrição.
+ * Represents a product in the e-commerce system.
+ * This class encapsulates the data related to a product, including the identifier, name
+ * the price, and the description.
  */
 
 @Data

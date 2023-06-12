@@ -9,9 +9,9 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * Representa um pagamento no sistema de e-commerce.
- * Esta classe encapsula os dados relacionados a um pagamento, incluindo o identificador, o identificador do pedido,
- * o método de pagamento, a data do pagamento.
+ * Represents a payment in the e-commerce system.
+ * This class encapsulates the data related to a payment, including the identifier, the order identifier,
+ * the payment method, the payment date
  */
 
 @Data

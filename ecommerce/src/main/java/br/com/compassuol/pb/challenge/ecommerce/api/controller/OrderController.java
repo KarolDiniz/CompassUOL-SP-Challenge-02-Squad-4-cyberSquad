@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Rest controller responsável por lidar com as requisições relacionadas aos pedidos.
- * Nele, enfatiza-se operacões como: criar (Post), obter (Get) e atualizar (Put) um pedido especifico.
- * obter(get) todos os pedidos, e obter (get) pedidos realizados a um cliente epecífico.
+ * Rest controller responsible for handling requests related to requests.
+ * In it, the emphasis is on operations like: create (Post), get (Get) and update (Put) a specific request.
+ * Get all the requests, and Get the requests made to a specific client.
  */
 
 @RestController

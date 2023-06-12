@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * Representa um pedido no sistema de e-commerce.
- * Esta classe encapsula os dados relacionados a um pedido, incluindo o identificador, o identificador do cliente,
- * os itens do pedido, a data de criação, e o status.
+ * Represents an order in the e-commerce system.
+ * This class encapsulates the data related to an order, including the order identifier, the customer identifier,
+ * the order items, the creation date, and the status.
  */
 
 @Data
