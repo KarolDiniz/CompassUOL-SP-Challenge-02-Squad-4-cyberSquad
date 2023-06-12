@@ -36,6 +36,7 @@ public class OrderService {
 
     public Order createOrder(Order order) {
         validateOrder(order);
+        order.setStatus(OrderStatus.CRIADO);
         return orderRepository.save(order);
     }
 

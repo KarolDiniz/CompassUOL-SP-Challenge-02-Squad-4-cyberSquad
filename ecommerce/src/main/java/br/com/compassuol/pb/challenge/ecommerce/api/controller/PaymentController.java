@@ -7,6 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Rest controller responsável por lidar com as requisições relacionadas aos pagamentos.
+ * Nele, enfatiza-se a operacão de criar (Post) um pagamento especifico.
+ */
+
 @RestController
 @RequestMapping("/v1/payments")
 public class PaymentController {

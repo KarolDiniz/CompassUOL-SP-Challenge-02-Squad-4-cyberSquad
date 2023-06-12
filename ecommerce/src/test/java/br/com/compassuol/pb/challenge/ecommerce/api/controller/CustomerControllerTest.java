@@ -1,4 +1,5 @@
 package br.com.compassuol.pb.challenge.ecommerce.api.controller;
+
 import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Customer;
 import br.com.compassuol.pb.challenge.ecommerce.domain.service.CustomerService;
 import org.junit.jupiter.api.BeforeEach;

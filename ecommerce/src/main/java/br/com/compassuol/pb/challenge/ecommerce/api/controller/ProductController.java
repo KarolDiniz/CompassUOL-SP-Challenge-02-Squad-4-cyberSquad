@@ -1,4 +1,5 @@
 package br.com.compassuol.pb.challenge.ecommerce.api.controller;
+
 import br.com.compassuol.pb.challenge.ecommerce.domain.exception.ProductNotFoundException;
 import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Product;
 import br.com.compassuol.pb.challenge.ecommerce.domain.service.ProductService;
@@ -8,6 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 import java.util.List;
+
+/**
+ * Rest controller responsável por lidar com as requisições relacionadas aos produtos.
+ * Nele, enfatiza-se operacões como: criar (Post), obter (Get), atualizar (Put) e deletar (Delete) um produto especifico.
+ * e obter (get) todos os produtos cadastrados;
+ */
 
 @RestController
 @RequestMapping("/v1/products")

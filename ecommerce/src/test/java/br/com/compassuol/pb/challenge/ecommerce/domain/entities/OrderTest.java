@@ -52,7 +52,7 @@ class OrderTest {
 
     @Test
     void testGetStatus() {
-        OrderStatus status = OrderStatus.CREATED;
+        OrderStatus status = OrderStatus.CRIADO;
         Order order = new Order();
         order.setStatus(status);
         assertEquals(status, order.getStatus());
@@ -91,7 +91,7 @@ class OrderTest {
 
     @Test
     void testSetStatus() {
-        OrderStatus status = OrderStatus.CREATED;
+        OrderStatus status = OrderStatus.CRIADO;
         Order order = new Order();
         order.setStatus(status);
         assertEquals(status, order.getStatus());
@@ -154,7 +154,7 @@ class OrderTest {
         order.setItems(items);
         LocalDateTime now = LocalDateTime.now();
         order.setDate(now);
-        OrderStatus status = OrderStatus.CREATED;
+        OrderStatus status = OrderStatus.CRIADO;
         order.setStatus(status);
 
         String expectedToString = "Order(id=1, customerId=1, items=" + items + ", date=" + now + ", status=" + status + ")";
