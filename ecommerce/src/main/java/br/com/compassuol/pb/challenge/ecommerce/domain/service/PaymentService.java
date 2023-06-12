@@ -1,5 +1,7 @@
 package br.com.compassuol.pb.challenge.ecommerce.domain.service;
+import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Order;
 import br.com.compassuol.pb.challenge.ecommerce.domain.entities.Payment;
+import br.com.compassuol.pb.challenge.ecommerce.domain.enums.OrderStatus;
 import br.com.compassuol.pb.challenge.ecommerce.domain.repository.OrderRepository;
 import br.com.compassuol.pb.challenge.ecommerce.domain.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,13 @@ public class PaymentService {
     }
 
     public Payment createPayment(Payment payment) {
-        validateOrderExistence(payment.getOrderId());
-        return paymentRepository.save(payment);
+        Long orderId = payment.getOrderId();
+        validateOrderExistence(orderId);
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new IllegalArgumentException("Invalid order ID"));
+
+        order.setStatus(OrderStatus.CONFIRMADO);
+        paymentRepository.save(payment);
+        return payment;
     }
 
     private void validateOrderExistence(Long orderId) {
